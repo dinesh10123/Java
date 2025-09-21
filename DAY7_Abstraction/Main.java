@@ -1,32 +1,48 @@
-// Create an abstract class Animal with an abstract method void sound(). 
-// Then, create three subclasses, Dog, Cat, and Cow, each implementing the 
-// sound method with their respective sounds. Write a main method to create instances 
-// of Dog, Cat, and Cow, and invoke the sound method on each instance.
-abstract class Animal{
-	abstract void sound();
+// Create an abstract class Appliance with fields for brand and power consumption,
+// and an abstract method void turnOn(). Create three subclasses, WashingMachine, Refrigerator, 
+// and Microwave, each providing their own implementation of the turnOn method.
+// Write a main method to create instances of WashingMachine, Refrigerator, and Microwave,
+// and invoke the turnOn method on each instance to display brand and power consumed
+abstract class Appliance{
+	String brand;
+	int PowerConsumption;
+
+	public Appliance(String brand, int PowerConsumption){
+		this.brand = brand;
+		this.PowerConsumption = PowerConsumption;
+	}
+	abstract void turnOn();
 }
-class Dog extends Animal{
-	void sound(){
-		System.out.println("Dog method called");
+class WashingMachine extends Appliance{
+	public WashingMachine(String brand, int PowerConsumption){
+		super(brand, PowerConsumption);
+	}
+	void turnOn(){
+		System.out.println("WashingMachine "+brand+ " turn on "+PowerConsumption+"w");
 	}
 }
-class Cat extends Animal{
-	void sound(){
-		System.out.println("Cat method called");
+class Refrigerator extends Appliance{
+	public Refrigerator(String brand, int PowerConsumption){
+		super(brand, PowerConsumption);
+	}
+	void turnOn(){
+		System.out.println("Refrigerator "+brand+ " turn on "+PowerConsumption+"w");
 	}
 }
-class Cow extends Animal{
-	void sound(){
-		System.out.println("Cow method called");
+class Microwave extends Appliance{
+	public Microwave(String brand, int PowerConsumption){
+		super(brand, PowerConsumption);
 	}
-}
-public class Main{
+	void turnOn(){
+		System.out.println("Microwave "+brand+ " turn on "+PowerConsumption+"w");
+	}
+}public class Main{
 	public static void main(String[] args) {
-		Animal a = new Dog();
-		a.sound();
-		Animal b = new Cat();
-		b.sound();
- 		Animal c = new Cow();
-		c.sound();
+		Appliance a = new WashingMachine("LG",10);
+		a.turnOn();
+		Appliance b = new Refrigerator("Samsung",15);
+		b.turnOn();
+		Appliance c = new Microwave("Sony",20);
+		c.turnOn();
 	}
 }
